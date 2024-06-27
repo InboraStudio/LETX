@@ -9,6 +9,13 @@ try {
   console.error(error);
 }
 
+xgb_model.fit(X_train, y_train)
+xgb_test_pred = xgb_model.predict_proba(X_test)[:, 1]
+
+pd.Series(xgb_test_pred, name="dep_delayed_15min").to_csv(
+    "xgb_2feat.csv", index_label="id", header=True
+)
+
 // Somewhere else in your code:
 controller.abort();
 import { LMStudioClient } from "@lmstudio/sdk";
