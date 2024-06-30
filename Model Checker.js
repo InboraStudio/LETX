@@ -9,7 +9,7 @@ try {
   console.error(error);
 }
 
-xgb_model.fit(X_train, y_train)
+xgb_model.fit(X_train, y_train12)
 xgb_test_pred = xgb_model.predict_proba(X_test)[:, 1]
 
 pd.Series(xgb_test_pred, name="dep_delayed_15min").to_csv(
